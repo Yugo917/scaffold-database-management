@@ -1,0 +1,20 @@
+INSERT INTO book(
+  id,
+  name,
+  description,
+  creation_date
+)
+VALUES
+(
+  uuid_generate_v1(),
+  'Book1',
+  'Description1',
+  now()
+)
+,
+(
+  uuid_generate_v1(),
+  'Book2',
+  'Description2',
+  now()
+);
