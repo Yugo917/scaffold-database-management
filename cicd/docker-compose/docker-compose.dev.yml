@@ -1,0 +1,24 @@
+version: "3.5"
+services:
+
+  # ===== SQL Migrations
+  sql-migration-book-shop:
+    image: flyway/flyway:8.4.2-alpine
+    command: -url=jdbc:postgresql://db/book_shop -user=my_user -password=my_password -connectRetries=60 migrate
+    volumes:
+      - ./../../publish/book_shop.sql:/flyway/sql
+    depends_on:
+      - db
+
+  # ===== Infra stack
+  db:
+    build:
+      context: ./../docker-image/postgres-multidb
+      dockerfile: Dockerfile
+    image: "postgres-12.9-multidb"
+    environment:
+      - POSTGRES_USER=my_user
+      - POSTGRES_PASSWORD=my_password
+      - POSTGRES_MULTIPLE_DATABASES=book_shop,other_db
+    ports:
+      - "5432:5432"
