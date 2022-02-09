@@ -2,7 +2,7 @@
 
 ## Purpose
 - The purpose of this scaffold it's to give a sample of automated data base versionning management in a CICD workflow.
-- This versionning is powered by [Flyway](https://flywaydb.org/), [Docker](https://www.docker.com/) and [Cake](https://cakebuild.net/)
+- This versionning management is powered by [Flyway](https://flywaydb.org/), [Docker](https://www.docker.com/) and [Cake](https://cakebuild.net/)
 
 ## Behavior of Flyway
 - Executing migrate is idempotent and can be done safely regardless of the current version of the schema.
@@ -14,17 +14,17 @@ Migrate does nothing.
 Migrate will apply the migrations 6, 7, in order and don't apply the 8, 9.
 
 ## Requirements
-- install [Docker](https://www.docker.com/) (to setup your dev env and apply your db update on a CICD workflow)
-- install [.NET](https://dotnet.microsoft.com/en-us/) (to be able to run crossplatform command)
-- execute `dotnet tool restore`
+- Install [Docker](https://www.docker.com/) (to setup your dev env and apply your db update on a CICD workflow)
+- Install [.NET](https://dotnet.microsoft.com/en-us/) (to be able to run crossplatform command)
+- Execute `dotnet tool restore`
 
 ## Get Started
-- execute `dotnet cake` to see the help
-- execute `dotnet cake setup-dev-environment` to setup your dev environment
+- Execute `dotnet cake` to see the help
+- Execute `dotnet cake setup-dev-environment` to setup your dev environment
 
 ## Play With It
-- create some new sql files in the book_shop project, the files must have the [flyway convention naming](https://flywaydb.org/documentation/concepts/migrations#naming).
-- and start to play with flyway with adding some sql files and recreate your dev environment with `dotnet cake setup-dev-environment`
+- Create some new sql files in the book_shop project, the files must have the [flyway convention naming](https://flywaydb.org/documentation/concepts/migrations#naming).
+- And start to play with flyway with adding some sql files and recreate your dev environment with `dotnet cake setup-dev-environment`
 
 ### Sql folder strucutre (see: src/sql/book_shop)
 - dataset : it is used for test or demo data scripts
